@@ -11,7 +11,7 @@ function Footer() {
       <div className={styles.innerContainer}>
         <FooterLinks />
         <div className={styles.emailContainer}>
-          <Button variant="link" size="link-no-padding">
+          <Button variant="link" size="link-no-padding" asChild>
             <a href="mailto:contact@miko-aro.com">contact@miko-aro.com</a>
           </Button>
           <span>{`© ${year}`}</span>

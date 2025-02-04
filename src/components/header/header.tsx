@@ -1,4 +1,5 @@
 import HeaderNav from "@/components/header/header-nav/header-nav";
+import HeaderNavMobile from "@/components/header/header-nav/header-nav-mobile";
 import Link from "next/link";
 
 import { ThemeToggle } from "../theme/theme-toggle";
@@ -14,6 +15,10 @@ function Header() {
         <div className={styles.navContainer}>
           <HeaderNav />
           <ThemeToggle />
+        </div>
+
+        <div className={styles.mobileNavContainer}>
+          <HeaderNavMobile />
         </div>
       </div>
     </header>

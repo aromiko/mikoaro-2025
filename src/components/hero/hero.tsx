@@ -38,7 +38,7 @@ function Hero({
         {headerText && <h1 className={styles.header}>{headerText}</h1>}
         {bodyText && <p className={styles.body}>{bodyText}</p>}
         {ctaUrl && (
-          <Button variant="default" size="lg" className={styles.cta}>
+          <Button variant="default" size="lg" className={styles.cta} asChild>
             <Link href={ctaUrl}>{ctaText || "CTA Text"}</Link>
           </Button>
         )}

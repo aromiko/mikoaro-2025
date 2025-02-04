@@ -10,7 +10,7 @@ function HeaderNav() {
       <ul className={styles.links}>
         {links.map(({ href, label }) => (
           <li key={`${href}${label}`}>
-            <Button variant="link">
+            <Button variant="link" asChild>
               <Link href={href} className={styles.link}>
                 {label}
               </Link>

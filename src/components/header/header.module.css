@@ -7,5 +7,9 @@
 }
 
 .navContainer {
-  @apply flex flex-row gap-4 items-center;
+  @apply hidden lg:flex flex-row gap-4 items-center;
+}
+
+.mobileNavContainer {
+  @apply lg:hidden;
 }

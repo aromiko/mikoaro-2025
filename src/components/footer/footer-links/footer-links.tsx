@@ -8,7 +8,7 @@ function FooterLinks() {
     <ul className={styles.links}>
       {footerLinks.map(({ href, icon }) => (
         <li key={href}>
-          <Button variant="ghost" size="icon-lg">
+          <Button variant="ghost" size="icon-lg" asChild>
             <a href={href} target="_blank" rel="noopener noreferrer">
               {icon}
             </a>
