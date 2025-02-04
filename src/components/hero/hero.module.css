@@ -3,7 +3,7 @@
 }
 
 .imageContainer {
-  @apply w-full lg:w-96 min-w-96;
+  @apply w-full min-w-0 lg:min-w-96;
 }
 
 .image {

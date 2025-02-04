@@ -9,3 +9,7 @@
 .emailContainer {
   @apply flex flex-col pt-4;
 }
+
+.year {
+  @apply text-sm;
+}

@@ -14,7 +14,7 @@ function Footer() {
           <Button variant="link" size="link-no-padding" asChild>
             <a href="mailto:contact@miko-aro.com">contact@miko-aro.com</a>
           </Button>
-          <span>{`© ${year}`}</span>
+          <span className={styles.year}>{`© ${year}`}</span>
         </div>
       </div>
     </footer>
