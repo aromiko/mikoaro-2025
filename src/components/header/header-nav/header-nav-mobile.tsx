@@ -2,6 +2,7 @@ import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -23,18 +24,29 @@ function HeaderNavMobile() {
         <SheetHeader className={styles.sheetHeader}>
           <SheetTitle className={styles.sheetTitle}>
             <ThemeToggle />
-            <span className={styles.sheetTitleText}>miko aro</span>
+            <SheetClose asChild>
+              <Button
+                variant="link"
+                size="link-no-padding"
+                className="font-extrabold text-2xl text-foreground outline-foreground"
+                asChild
+              >
+                <Link href="/">miko aro</Link>
+              </Button>
+            </SheetClose>
           </SheetTitle>
         </SheetHeader>
         <nav className={styles.mainContainer}>
           <ul className={styles.links}>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
-                <Button variant="link" size="link-no-padding" asChild>
-                  <Link href={href} className={styles.link}>
-                    {label}
-                  </Link>
-                </Button>
+                <SheetClose asChild>
+                  <Button variant="link" size="link-no-padding" asChild>
+                    <Link href={href} className={styles.link}>
+                      {label}
+                    </Link>
+                  </Button>
+                </SheetClose>
               </li>
             ))}
           </ul>

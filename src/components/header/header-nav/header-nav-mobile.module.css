@@ -3,13 +3,9 @@
 }
 
 .sheetHeader {
-  @apply flex items-start;
+  @apply flex items-start pt-4;
 }
 
 .sheetTitle {
   @apply w-fit space-x-4;
-}
-
-.sheetTitleText {
-  @apply font-extrabold;
 }
