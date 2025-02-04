@@ -33,7 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="container py-24 px-4">{children}</main>
+          {children}
           <Footer />
         </ThemeProvider>
       </body>

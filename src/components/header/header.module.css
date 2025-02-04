@@ -1,5 +1,5 @@
 .mainContainer {
-  @apply bg-background border-b shadow-sm sticky top-0;
+  @apply bg-background border-b shadow-sm sticky top-0 z-50;
 }
 
 .innerContainer {
