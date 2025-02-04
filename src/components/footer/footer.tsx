@@ -10,10 +10,12 @@ function Footer() {
     <footer className={styles.mainContainer}>
       <div className={styles.innerContainer}>
         <FooterLinks />
-        <Button variant="link" className={styles.email}>
-          <a href="mailto:contact@miko-aro.com">contact@miko-aro.com</a>
-        </Button>
-        <span className="px-4">{`© ${year}`}</span>
+        <div className={styles.emailContainer}>
+          <Button variant="link" size="link-no-padding">
+            <a href="mailto:contact@miko-aro.com">contact@miko-aro.com</a>
+          </Button>
+          <span>{`© ${year}`}</span>
+        </div>
       </div>
     </footer>
   );

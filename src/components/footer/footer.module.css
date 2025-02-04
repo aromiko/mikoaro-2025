@@ -3,9 +3,9 @@
 }
 
 .innerContainer {
-  @apply flex flex-col container px-4 py-10;
+  @apply flex flex-col container px-4 py-12;
 }
 
-.email {
-  @apply w-fit;
+.emailContainer {
+  @apply flex flex-col pt-4;
 }
