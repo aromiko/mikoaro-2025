@@ -10,7 +10,7 @@ import styles from "./hero.module.css";
 type HeroProps = {
   bgImage?: StaticImageData;
   bgImageAlt?: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   imageAlt?: string;
   imagePosition?: "left" | "right";
   headerText: string;
@@ -50,16 +50,18 @@ function Hero({
       )}
 
       <div className={styles.innerContainer}>
-        <div className={styles.imageContainer}>
-          <AspectRatio ratio={1 / 1}>
-            <Image
-              src={image}
-              alt={imageAlt || "Image of hero component"}
-              className={styles.image}
-              layout="fill"
-            />
-          </AspectRatio>
-        </div>
+        {image && (
+          <div className={styles.imageContainer}>
+            <AspectRatio ratio={1 / 1}>
+              <Image
+                src={image}
+                alt={imageAlt || "Image of hero component"}
+                className={styles.image}
+                layout="fill"
+              />
+            </AspectRatio>
+          </div>
+        )}
 
         <div className={cn({ "text-white z-10": bgImage })}>
           {headerText && <h1 className={styles.header}>{headerText}</h1>}
