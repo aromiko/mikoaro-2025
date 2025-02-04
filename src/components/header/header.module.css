@@ -1,0 +1,15 @@
+.mainContainer {
+  @apply bg-background border-b shadow-sm sticky top-0 z-50;
+}
+
+.innerContainer {
+  @apply flex flex-row items-center justify-between container p-4;
+}
+
+.navContainer {
+  @apply hidden lg:flex flex-row gap-4 items-center;
+}
+
+.mobileNavContainer {
+  @apply lg:hidden;
+}

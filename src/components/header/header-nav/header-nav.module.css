@@ -1,0 +1,11 @@
+.mainContainer {
+  @apply flex flex-row;
+}
+
+.links {
+  @apply flex flex-row gap-4;
+}
+
+.link {
+  @apply font-bold;
+}

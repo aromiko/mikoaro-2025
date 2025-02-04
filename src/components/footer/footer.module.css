@@ -1,0 +1,15 @@
+.mainContainer {
+  @apply bg-background text-foreground border-t-2;
+}
+
+.innerContainer {
+  @apply flex flex-col container px-4 py-12;
+}
+
+.emailContainer {
+  @apply flex flex-col pt-4;
+}
+
+.year {
+  @apply text-sm;
+}
