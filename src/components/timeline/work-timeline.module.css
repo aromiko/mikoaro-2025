@@ -1,0 +1,7 @@
+.workDescription {
+  @apply mt-4 text-foreground;
+}
+
+.position {
+  @apply text-foreground;
+}

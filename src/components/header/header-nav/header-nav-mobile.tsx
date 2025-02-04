@@ -1,9 +1,12 @@
+import FooterLinks from "@/components/footer/footer-links/footer-links";
+import stylesFooter from "@/components/footer/footer.module.css";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger
@@ -15,12 +18,15 @@ import Link from "next/link";
 import styles from "./header-nav-mobile.module.css";
 
 function HeaderNavMobile() {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger aria-label="Open sheet navigation">
         <Menu size={24} />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="flex flex-col">
         <SheetHeader className={styles.sheetHeader}>
           <SheetTitle className={styles.sheetTitle}>
             <ThemeToggle />
@@ -51,6 +57,15 @@ function HeaderNavMobile() {
             ))}
           </ul>
         </nav>
+        <SheetFooter className="mt-auto">
+          <div className={stylesFooter.emailContainer}>
+            <Button variant="link" size="link-no-padding" asChild>
+              <a href="mailto:contact@miko-aro.com">contact@miko-aro.com</a>
+            </Button>
+            <span className={stylesFooter.year}>{`© ${year}`}</span>
+          </div>
+          <FooterLinks />
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   );
