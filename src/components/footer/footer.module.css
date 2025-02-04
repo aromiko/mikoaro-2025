@@ -1,5 +1,5 @@
 .mainContainer {
-  @apply bg-foreground text-background;
+  @apply bg-black text-white border-t;
 }
 
 .innerContainer {
