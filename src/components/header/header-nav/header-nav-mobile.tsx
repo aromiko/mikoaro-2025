@@ -23,7 +23,7 @@ function HeaderNavMobile() {
         <SheetHeader className={styles.sheetHeader}>
           <SheetTitle className={styles.sheetTitle}>
             <ThemeToggle />
-            <span>miko aro</span>
+            <span className={styles.sheetTitleText}>miko aro</span>
           </SheetTitle>
         </SheetHeader>
         <nav className={styles.mainContainer}>

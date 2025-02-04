@@ -1,17 +1,12 @@
-import profileImage from "@/app/assets/images/miko.png";
 import Hero from "@/components/hero/hero";
+import HeroImageBg from "@/components/hero/hero-image-bg/hero-image-bg";
+import { homeAboutHeroProps, homeMainHeroProps } from "@/lib/data/home/home";
 
 export default function Home() {
   return (
     <main>
-      <Hero
-        image={profileImage}
-        imageAlt="Miko profile picture"
-        headerText="Hi, I'm Miko!"
-        bodyText="I am a Frontend Developer passionate about crafting seamless user experiences and high-performance web applications. I have proven expertise in building and optimizing platforms for banking, logistics, and workforce solutions. I have designed and maintained marketing websites, developed scalable and responsive component libraries, and enhanced digital ecosystems with intuitive design systems."
-        ctaUrl="/work"
-        ctaText="View my work experience"
-      />
+      <Hero {...homeMainHeroProps} />
+      <HeroImageBg {...homeAboutHeroProps} />
     </main>
   );
 }

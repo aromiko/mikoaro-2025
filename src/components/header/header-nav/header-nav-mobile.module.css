@@ -7,5 +7,9 @@
 }
 
 .sheetTitle {
-  @apply w-fit font-extrabold space-x-4;
+  @apply w-fit space-x-4;
+}
+
+.sheetTitleText {
+  @apply font-extrabold;
 }
