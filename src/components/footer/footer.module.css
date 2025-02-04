@@ -1,0 +1,11 @@
+.mainContainer {
+  @apply bg-foreground text-background;
+}
+
+.innerContainer {
+  @apply flex flex-col container px-4 py-10;
+}
+
+.email {
+  @apply w-fit;
+}
