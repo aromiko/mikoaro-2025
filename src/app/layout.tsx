@@ -16,10 +16,26 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: {
     template: "Miko Aro | Frontend Web Developer | %s",
-    default: "Miko Aro | Frontend Web Developer" // a default is required when creating a template
+    default: "Miko Aro | Frontend Web Developer"
   },
   description:
-    "Miko Aro | Frontend Web Developer crafting dynamic, user-friendly, and performance-optimized web experiences with modern technologies."
+    "Miko Aro | Frontend Web Developer crafting dynamic, user-friendly, and performance-optimized web experiences with modern technologies.",
+  openGraph: {
+    title: "Miko Aro | Frontend Web Developer",
+    description:
+      "Miko Aro | Frontend Web Developer crafting dynamic, user-friendly, and performance-optimized web experiences with modern technologies.",
+    url: "https://miko-aro.com",
+    siteName: "Miko Aro",
+    images: [
+      {
+        url: "https://yourdomain.com/assets/images/og-image.png",
+        width: 1200,
+        height: 628
+      }
+    ],
+    locale: "en_US",
+    type: "website"
+  }
 };
 
 export default function RootLayout({
