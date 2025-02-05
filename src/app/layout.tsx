@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Miko Aro",
     images: [
       {
-        url: "https://yourdomain.com/assets/images/og-image.png",
+        url: "https://miko-aro.com/assets/images/og-image.png",
         width: 1200,
         height: 628
       }
