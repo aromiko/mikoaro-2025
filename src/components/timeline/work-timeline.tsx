@@ -30,9 +30,9 @@ function WorkTimeline({ workTimelineItems }: WorkTimelineProps) {
   return (
     <Timeline>
       {workTimelineItems.map((item, index) => (
-        <>
+        <div key={index}>
           {index % 2 === 0 ? (
-            <TimelineItem key={index} className="lg:before:flex-1">
+            <TimelineItem className="lg:before:flex-1">
               <TimelineSeparator>
                 <TimelineDot>{item.dotContent}</TimelineDot>
                 <TimelineConnector />
@@ -64,10 +64,7 @@ function WorkTimeline({ workTimelineItems }: WorkTimelineProps) {
               </TimelineContent>
             </TimelineItem>
           ) : (
-            <TimelineItem
-              key={index}
-              className="flex-row-reverse lg:flex-row lg:after:flex-1"
-            >
+            <TimelineItem className="flex-row-reverse lg:flex-row lg:after:flex-1">
               <TimelineContent>
                 <TimelineTitle
                   className={cn(
@@ -99,7 +96,7 @@ function WorkTimeline({ workTimelineItems }: WorkTimelineProps) {
               </TimelineSeparator>
             </TimelineItem>
           )}
-        </>
+        </div>
       ))}
     </Timeline>
   );

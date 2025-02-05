@@ -102,7 +102,7 @@ export const TimelineDot = React.forwardRef<
       className={cn(
         "flex size-12 items-center justify-center empty:after:block empty:after:rounded-full empty:after:outline-current [&_svg]:size-4",
         orientation === "vertical" && "mt-1",
-        variant === "default" && "empty:after:size-2.5 empty:after:bg-current",
+        variant === "default" && "empty:after:size-5 empty:after:bg-current",
         variant === "outline" && "empty:after:size-2 empty:after:outline",
         className
       )}

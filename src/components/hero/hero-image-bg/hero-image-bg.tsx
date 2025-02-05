@@ -48,9 +48,9 @@ function HeroImageBg({
         {bodyText && <p className={styles.body}>{bodyText}</p>}
         {ctaUrl && (
           <Button
-            variant="outline"
+            variant={bgImage ? "outline" : "default"}
             size="lg"
-            className="mt-8 text-primary"
+            className={cn({ "text-primary": bgImage }, "mt-8")}
             asChild
           >
             <Link href={ctaUrl}>{ctaText || "CTA Text"}</Link>

@@ -21,3 +21,11 @@ export const homeAboutHeroProps = {
   ctaText: "Discover more about me",
   ctaSubtext: "Explore the hobbies and experiences that keep me inspired!"
 };
+
+export const homeProjectsHeroProps = {
+  headerText: "Crafting Beyond the Code",
+  bodyText:
+    "Outside of work, my passion for web development extends into personal projects that push creativity and innovation. Whether experimenting with new technologies, refining design aesthetics, or solving real-world problems through code, these projects showcase my curiosity and dedication to continuous learning. Each one is a reflection of my drive to build beyond the usual—turning ideas into interactive, meaningful experiences.",
+  ctaUrl: "/projects",
+  ctaText: "Explore My Creations"
+};

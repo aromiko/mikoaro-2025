@@ -1,5 +1,5 @@
 function ContactPage() {
-  return <main>HELLO CONTACT</main>;
+  return <span>HELLO CONTACT</span>;
 }
 
 export default ContactPage;
