@@ -11,5 +11,5 @@ export default function AboutLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>{children}</main>;
+  return <>{children}</>;
 }

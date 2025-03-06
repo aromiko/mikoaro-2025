@@ -5,11 +5,9 @@ import { workMainHeroProps, workTimelineItems } from "@/lib/data/work/work";
 function WorkPage() {
   return (
     <>
-      <section className="">
-        <Hero {...workMainHeroProps} />
-        <div className="container px-4 py-12 lg:py-20">
-          <WorkTimeline workTimelineItems={workTimelineItems} />
-        </div>
+      <Hero {...workMainHeroProps} />
+      <section className="container px-4 py-12 lg:py-20">
+        <WorkTimeline workTimelineItems={workTimelineItems} />
       </section>
     </>
   );
