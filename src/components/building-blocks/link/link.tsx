@@ -1,4 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
+import Icon from "@/components/ui/icon";
 import { TypeComponentLink } from "@/lib/types";
 import Link from "next/link";
 
@@ -18,6 +19,7 @@ export default function BasicLink({ data }: LinkProps) {
         variant: data.linkIsButton ? "default" : "link"
       })}
     >
+      {data.linkIcon && <Icon name={data.linkIcon} />}
       {data.linkName}
     </Link>
   );

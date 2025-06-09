@@ -1,0 +1,21 @@
+fragment SimpleBlockFragment on ComponentSimpleBlock {
+  sys {
+    id
+  }
+  __typename
+  simpleBlockName
+  simpleBlockHeader
+  simpleBlockBody
+  simpleBlockImageCollection {
+    items {
+      ...MediaFragment
+    }
+  }
+  simpleBlockLinks {
+    linkListGroupCollection {
+      items {
+        ...LinkFragment
+      }
+    }
+  }
+}

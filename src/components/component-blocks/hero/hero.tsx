@@ -8,10 +8,30 @@ export default function Hero({
 }: TypeComponentHero) {
   return (
     <section className="justify-items-center">
-      <div className="container my-20 w-2xl justify-center justify-items-center space-y-2 p-4 text-center">
-        {heroImage && <Media data={heroImage} wrapperCssClass="w-100 h-100" />}
-        {heroTitle && <h2 className="text-4xl font-bold">{heroTitle}</h2>}
-        {heroTitle && <p>{heroBody}</p>}
+      <div className="container flex gap-4">
+        <div className="rounded-2xl border p-6">
+          {heroTitle && <h2 className="text-2xl font-bold">{heroTitle}</h2>}
+          {heroTitle && <p>{heroBody}</p>}
+        </div>
+        {heroImage && (
+          <>
+            <div>
+              <Media
+                data={heroImage}
+                wrapperCssClass="size-96"
+                imageCssClass="object-cover rounded-2xl"
+              />
+            </div>
+
+            <div>
+              <Media
+                data={heroImage}
+                wrapperCssClass="size-96"
+                imageCssClass="object-cover rounded-2xl"
+              />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

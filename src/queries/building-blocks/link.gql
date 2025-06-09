@@ -7,4 +7,5 @@ fragment LinkFragment on ComponentLink {
   linkUrl
   linkIsExternal
   linkIsButton
+  linkIcon
 }

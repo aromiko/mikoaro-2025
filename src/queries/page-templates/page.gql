@@ -1,6 +1,7 @@
 #import "@/queries/component-blocks/header.gql"
 #import "@/queries/component-blocks/footer.gql"
 #import "@/queries/component-blocks/hero.gql"
+#import "@/queries/component-blocks/simple-block.gql"
 
 query QUERY_PAGE_BY_SLUG($slug: String!, $isPreview: Boolean!) {
   componentPageCollection(
@@ -21,6 +22,9 @@ query QUERY_PAGE_BY_SLUG($slug: String!, $isPreview: Boolean!) {
           }
           ... on ComponentHero {
             ...HeroFragment
+          }
+          ... on ComponentSimpleBlock {
+            ...SimpleBlockFragment
           }
         }
       }
