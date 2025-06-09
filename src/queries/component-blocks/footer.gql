@@ -1,0 +1,7 @@
+fragment FooterFragment on ComponentFooter {
+  sys {
+    id
+  }
+  __typename
+  footerName
+}

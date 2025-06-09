@@ -1,17 +1,5 @@
-import Hero from "@/components/hero/hero";
-import HeroImageBg from "@/components/hero/hero-image-bg/hero-image-bg";
-import {
-  homeAboutHeroProps,
-  homeMainHeroProps,
-  homeProjectsHeroProps
-} from "@/lib/data/home/home";
+import Page from "@/components/page-templates/page/page";
 
 export default function Home() {
-  return (
-    <>
-      <Hero {...homeMainHeroProps} />
-      <HeroImageBg {...homeAboutHeroProps} />
-      <HeroImageBg {...homeProjectsHeroProps} />
-    </>
-  );
+  return <Page slug="home" />;
 }

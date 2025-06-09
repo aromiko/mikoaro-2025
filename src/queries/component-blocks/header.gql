@@ -1,0 +1,12 @@
+#import "@/queries/building-blocks/basic-media.gql"
+
+fragment HeaderFragment on ComponentHeader {
+  sys {
+    id
+  }
+  __typename
+  headerName
+  headerLogo {
+    ...BasicMediaFragment
+  }
+}

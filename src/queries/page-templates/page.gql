@@ -1,0 +1,29 @@
+#import "@/queries/component-blocks/header.gql"
+#import "@/queries/component-blocks/footer.gql"
+#import "@/queries/component-blocks/hero.gql"
+
+query QUERY_PAGE_BY_SLUG($slug: String!, $isPreview: Boolean!) {
+  componentPageCollection(
+    where: { pageSlug: $slug }
+    limit: 1
+    preview: $isPreview
+  ) {
+    items {
+      pageName
+      pageSlug
+      pageContentsCollection {
+        items {
+          ... on ComponentHeader {
+            ...HeaderFragment
+          }
+          ... on ComponentFooter {
+            ...FooterFragment
+          }
+          ... on ComponentHero {
+            ...HeroFragment
+          }
+        }
+      }
+    }
+  }
+}
