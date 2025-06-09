@@ -1,0 +1,14 @@
+#import "@/queries/building-blocks/link.gql"
+
+fragment LinkListFragment on ComponentLinkList {
+  sys {
+    id
+  }
+  linkListName
+  linkListHeader
+  linkListGroupCollection {
+    items {
+      ...LinkFragment
+    }
+  }
+}

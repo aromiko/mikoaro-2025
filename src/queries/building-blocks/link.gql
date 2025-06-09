@@ -1,0 +1,10 @@
+fragment LinkFragment on ComponentLink {
+  sys {
+    id
+  }
+  linkName
+  linkText
+  linkUrl
+  linkIsExternal
+  linkIsButton
+}
