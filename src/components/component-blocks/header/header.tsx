@@ -1,4 +1,4 @@
-import BasicMedia from "@/components/building-blocks/basic-media/basic-media";
+import Media from "@/components/building-blocks/media/media";
 import { TypeComponentHeader } from "@/lib/types";
 
 export default function Header({
@@ -8,7 +8,7 @@ export default function Header({
   return (
     <div className="justify-items-center">
       <div className="container p-4 font-bold">
-        {headerLogo && <BasicMedia data={headerLogo} />}
+        {headerLogo && <Media data={headerLogo} />}
 
         <div>{headerName}</div>
       </div>

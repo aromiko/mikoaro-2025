@@ -1,4 +1,4 @@
-import { TypeComponentBase, TypeComponentBasicMedia } from "@/lib/types";
+import { TypeComponentBase, TypeComponentMedia } from "@/lib/types";
 
 export interface TypeComponentHero extends TypeComponentBase {
   __typename: "ComponentHero";
@@ -6,5 +6,5 @@ export interface TypeComponentHero extends TypeComponentBase {
   heroName: string;
   heroTitle?: string;
   heroBody?: string;
-  heroImage?: TypeComponentBasicMedia;
+  heroImage?: TypeComponentMedia;
 }

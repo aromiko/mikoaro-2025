@@ -1,4 +1,4 @@
-#import "@/queries/building-blocks/basic-media.gql"
+#import "@/queries/building-blocks/media.gql"
 
 fragment HeaderFragment on ComponentHeader {
   sys {
@@ -7,6 +7,6 @@ fragment HeaderFragment on ComponentHeader {
   __typename
   headerName
   headerLogo {
-    ...BasicMediaFragment
+    ...MediaFragment
   }
 }

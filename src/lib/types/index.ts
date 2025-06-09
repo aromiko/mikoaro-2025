@@ -1,10 +1,10 @@
 //Building Blocks
 export type { TypeComponentBase } from "@/lib/types/building-blocks/TypeComponentBase";
-export type { TypeComponentBasicLink } from "@/lib/types/building-blocks/TypeComponentBasicLink";
-export type { TypeComponentBasicLinkList } from "@/lib/types/building-blocks/TypeComponentBasicLinkList";
+export type { TypeComponentLink } from "@/lib/types/building-blocks/TypeComponentLink";
+export type { TypeComponentLinkList } from "@/lib/types/building-blocks/TypeComponentLinkList";
 
 //Component Blocks
-export type { TypeComponentBasicMedia } from "@/lib/types/building-blocks/TypeComponentBasicMedia";
+export type { TypeComponentContentfulMedia } from "@/lib/types/building-blocks/TypeComponentContentfulMedia";
 export type { TypeComponentMedia } from "@/lib/types/building-blocks/TypeComponentMedia";
 export type { TypeComponentFooter } from "@/lib/types/component-blocks/TypeComponentFooter";
 export type { TypeComponentHeader } from "@/lib/types/component-blocks/TypeComponentHeader";

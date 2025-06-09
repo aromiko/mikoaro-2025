@@ -1,6 +1,13 @@
+import { TypeComponentContentfulMedia } from "@/lib/types";
+
 export interface TypeComponentMedia {
-  url: string;
-  description?: string;
-  width: number;
-  height: number;
+  mediaName?: string;
+  mediaImage: TypeComponentContentfulMedia;
+  mediaAltText: string;
+  mediaWidth?: number;
+  mediaHeight?: number;
+  mediaFill: boolean;
+  mediaEager: boolean;
+  mediaLinkUrl?: string;
+  mediaLinkIsExternal: boolean;
 }

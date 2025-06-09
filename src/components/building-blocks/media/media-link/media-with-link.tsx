@@ -1,16 +1,12 @@
 import Link from "next/link";
 
-interface BasicMediaLinkProps {
+interface MediaLinkProps {
   url?: string;
   isExternal?: boolean;
   children: React.ReactNode;
 }
 
-export function BasicMediaLink({
-  url,
-  isExternal,
-  children
-}: BasicMediaLinkProps) {
+export function MediaLink({ url, isExternal, children }: MediaLinkProps) {
   if (url) {
     if (isExternal) {
       return (

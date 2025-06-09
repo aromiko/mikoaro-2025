@@ -1,8 +1,8 @@
 export const ComponentRegistry = {
   // Building Blocks
-  BasicLink: "ComponentBasicLink",
-  BasicLinkList: "ComponentBasicLinkList",
-  BasicMedia: "ComponentBasicMedia",
+  Link: "ComponentLink",
+  LinkList: "ComponentLinkList",
+  Media: "ComponentMedia",
 
   // Component Blocks
   Footer: "ComponentFooter",

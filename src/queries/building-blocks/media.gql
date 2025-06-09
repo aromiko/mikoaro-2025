@@ -1,0 +1,19 @@
+fragment MediaFragment on ComponentMedia {
+  sys {
+    id
+  }
+  mediaName
+  mediaImage {
+    url
+    description
+    height
+    width
+  }
+  mediaAltText
+  mediaHeight
+  mediaWidth
+  mediaFill
+  mediaEager
+  mediaLinkUrl
+  mediaLinkIsExternal
+}

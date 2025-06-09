@@ -1,5 +1,5 @@
-export interface TypeComponentBasicLink {
-  basicLinkName: string;
+export interface TypeComponentLink {
+  linkName: string;
   linkText?: string;
   linkUrl?: string;
   linkIsExternal: boolean;

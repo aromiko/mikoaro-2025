@@ -1,12 +1,12 @@
 import { buttonVariants } from "@/components/ui/button";
-import { TypeComponentBasicLink } from "@/lib/types";
+import { TypeComponentLink } from "@/lib/types";
 import Link from "next/link";
 
-interface BasicLinkProps {
-  data: TypeComponentBasicLink;
+interface LinkProps {
+  data: TypeComponentLink;
 }
 
-export default function BasicLink({ data }: BasicLinkProps) {
+export default function BasicLink({ data }: LinkProps) {
   const isExternal = data.linkIsExternal;
 
   return (
@@ -18,7 +18,7 @@ export default function BasicLink({ data }: BasicLinkProps) {
         variant: data.linkIsButton ? "default" : "link"
       })}
     >
-      {data.basicLinkName}
+      {data.linkName}
     </Link>
   );
 }

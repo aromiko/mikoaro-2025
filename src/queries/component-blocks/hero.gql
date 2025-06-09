@@ -1,4 +1,4 @@
-#import "@/queries/building-blocks/basic-media.gql"
+#import "@/queries/building-blocks/media.gql"
 
 fragment HeroFragment on ComponentHero {
   sys {
@@ -9,6 +9,6 @@ fragment HeroFragment on ComponentHero {
   heroTitle
   heroBody
   heroImage {
-    ...BasicMediaFragment
+    ...MediaFragment
   }
 }
