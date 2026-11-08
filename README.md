@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# miko-aro.com
 
-## Getting Started
+Personal site for Miko Aro, Frontend Web Developer.
 
-First, run the development server:
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack, typed routes, fully static output)
+- React 19
+- [Tailwind CSS v4](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) (Radix primitives)
+- TypeScript (strict, `noUncheckedIndexedAccess`)
+- ESLint 9 flat config (`eslint-config-next`), Prettier with import sorting + Tailwind class sorting
+
+## Getting started
+
+Requires Node 22+ (see `.nvmrc`).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script              | What it does                                 |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Dev server on http://localhost:3000          |
+| `npm run build`     | Production build                             |
+| `npm run start`     | Serve the production build                   |
+| `npm run lint`      | ESLint                                       |
+| `npm run typecheck` | Generate route types, then `tsc --noEmit`    |
+| `npm run format`    | Prettier (write)                             |
+| `npm run check`     | lint + typecheck + format check (same as CI) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project layout
 
-## Learn More
+```
+src/
+  app/                 Routes, metadata, sitemap.ts, robots.ts, globals.css
+    assets/            Statically imported images (optimized by next/image)
+  components/
+    layout/            Header, footer, navigation
+    sections/          Page sections (hero, banner, work timeline)
+    ui/                shadcn/ui primitives
+    theme/             next-themes provider + toggle
+    icons/             Brand icons (no longer shipped by lucide)
+  lib/
+    site.ts            Site-wide config: URL, email, nav, social links
+    data/              Page content
+    types.ts           Shared content types
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Content lives in `src/lib/data` as typed objects, so moving it to a CMS
+(e.g. Contentful) later only means swapping those modules for fetchers that
+return the same types.
