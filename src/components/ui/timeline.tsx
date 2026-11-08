@@ -1,184 +1,100 @@
-"use client";
+import { cn } from "cn";
+import type { ComponentProps } from "react";
 
-import { cn } from "@/lib/utils";
-import * as React from "react";
+// Vertical timeline primitives. Orientation support was dropped because the
+// site only ever renders a vertical timeline; this also lets the primitives
+// stay server components (no context needed).
 
-type TimelineContext = {
-  orientation: "horizontal" | "vertical";
-};
-
-const TimelineContext = React.createContext<TimelineContext | null>(null);
-
-function useTimeline() {
-  const context = React.useContext(TimelineContext);
-  if (!context) {
-    throw new Error("useTimeline must be used within a TimelineProvider.");
-  }
-
-  return context;
-}
-
-export interface TimelineProps extends React.ComponentPropsWithoutRef<"ol"> {
-  orientation?: "horizontal" | "vertical";
-}
-
-export const Timeline = React.forwardRef<
-  React.ComponentRef<"ol">,
-  TimelineProps
->(({ className, orientation = "vertical", ...props }, ref) => (
-  <TimelineContext.Provider value={{ orientation }}>
+function Timeline({ className, ...props }: ComponentProps<"ol">) {
+  return (
     <ol
-      ref={ref}
-      role="list"
-      data-orientation={orientation}
-      className={cn(
-        "flex",
-        orientation === "vertical" && "flex-col",
-        className
-      )}
+      data-slot="timeline"
+      className={cn("flex flex-col", className)}
       {...props}
     />
-  </TimelineContext.Provider>
-));
-Timeline.displayName = "Timeline";
+  );
+}
 
-export const TimelineItem = React.forwardRef<
-  React.ComponentRef<"li">,
-  React.ComponentPropsWithoutRef<"li">
->(({ className, ...props }, ref) => {
-  const { orientation } = useTimeline();
-
+function TimelineItem({ className, ...props }: ComponentProps<"li">) {
   return (
     <li
-      ref={ref}
-      data-orientation={orientation}
-      className={cn(
-        "flex gap-4",
-        orientation === "horizontal" && "flex-col",
-        className
-      )}
+      data-slot="timeline-item"
+      className={cn("flex gap-4", className)}
       {...props}
     />
   );
-});
-TimelineItem.displayName = "TimelineItem";
-
-export const TimelineSeparator = React.forwardRef<
-  React.ComponentRef<"div">,
-  React.ComponentPropsWithoutRef<"div">
->(({ className, ...props }, ref) => {
-  const { orientation } = useTimeline();
-
-  return (
-    <div
-      ref={ref}
-      data-orientation={orientation}
-      className={cn(
-        "flex items-center",
-        orientation === "vertical" && "flex-col",
-        className
-      )}
-      {...props}
-    />
-  );
-});
-TimelineSeparator.displayName = "TimelineSeparator";
-
-export interface TimelineDotProps
-  extends React.ComponentPropsWithoutRef<"div"> {
-  variant?: "default" | "outline";
 }
 
-export const TimelineDot = React.forwardRef<
-  React.ComponentRef<"div">,
-  TimelineDotProps
->(({ variant = "default", className, ...props }, ref) => {
-  const { orientation } = useTimeline();
-
+function TimelineSeparator({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
-      ref={ref}
-      data-orientation={orientation}
+      data-slot="timeline-separator"
+      className={cn("flex flex-col items-center", className)}
+      {...props}
+    />
+  );
+}
+
+function TimelineDot({ className, ...props }: ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="timeline-dot"
       className={cn(
-        "flex size-12 items-center justify-center empty:after:block empty:after:rounded-full empty:after:outline-current [&_svg]:size-4",
-        orientation === "vertical" && "mt-1",
-        variant === "default" && "empty:after:size-5 empty:after:bg-current",
-        variant === "outline" && "empty:after:size-2 empty:after:outline",
+        "mt-1 flex size-12 items-center justify-center empty:after:block empty:after:size-5 empty:after:rounded-full empty:after:bg-current",
         className
       )}
       {...props}
     />
   );
-});
-TimelineDot.displayName = "TimelineDot";
+}
 
-export const TimelineConnector = React.forwardRef<
-  React.ComponentRef<"div">,
-  React.ComponentPropsWithoutRef<"div">
->(({ className, ...props }, ref) => {
-  const { orientation } = useTimeline();
-
+function TimelineConnector({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
-      ref={ref}
-      data-orientation={orientation}
-      className={cn(
-        "flex-1 bg-border",
-        orientation === "vertical" && "my-2 w-0.5",
-        orientation === "horizontal" && "mx-2 h-0.5",
-        className
-      )}
+      data-slot="timeline-connector"
+      className={cn("my-2 w-0.5 flex-1 bg-border", className)}
       {...props}
     />
   );
-});
-TimelineConnector.displayName = "TimelineConnector";
+}
 
-export const TimelineContent = React.forwardRef<
-  React.ComponentRef<"div">,
-  React.ComponentPropsWithoutRef<"div">
->(({ className, ...props }, ref) => {
-  const { orientation } = useTimeline();
-
+function TimelineContent({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
-      ref={ref}
-      data-orientation={orientation}
-      className={cn(
-        "flex-1",
-        orientation === "vertical" && "pb-8 first:text-right last:text-left",
-        orientation === "horizontal" && "pr-8",
-        className
-      )}
+      data-slot="timeline-content"
+      className={cn("flex-1 pb-8", className)}
       {...props}
     />
   );
-});
-TimelineContent.displayName = "TimelineContent";
+}
 
-export const TimelineTitle = React.forwardRef<
-  React.ComponentRef<"h2">,
-  React.ComponentPropsWithoutRef<"h2">
->((props, ref) => {
-  const { orientation } = useTimeline();
+function TimelineTitle({ className, ...props }: ComponentProps<"h2">) {
+  return (
+    <h2
+      data-slot="timeline-title"
+      className={cn("font-bold", className)}
+      {...props}
+    />
+  );
+}
 
-  return <h2 ref={ref} data-orientation={orientation} {...props} />;
-});
-TimelineTitle.displayName = "TimelineTitle";
-
-export const TimelineDescription = React.forwardRef<
-  React.ComponentRef<"p">,
-  React.ComponentPropsWithoutRef<"p">
->(({ className, ...props }, ref) => {
-  const { orientation } = useTimeline();
-
+function TimelineDescription({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
-      ref={ref}
-      data-orientation={orientation}
+      data-slot="timeline-description"
       className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );
-});
-TimelineDescription.displayName = "TimelineDescription";
+}
+
+export {
+  Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDescription,
+  TimelineDot,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineTitle
+};

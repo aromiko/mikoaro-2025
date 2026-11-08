@@ -1,16 +1,23 @@
-import Hero from "@/components/hero/hero";
-import WorkTimeline from "@/components/timeline/work-timeline";
-import { workMainHeroProps, workTimelineItems } from "@/lib/data/work/work";
+import type { Metadata } from "next";
 
-function WorkPage() {
+import { Hero } from "@/components/sections/hero";
+import { WorkTimeline } from "@/components/sections/work-timeline";
+import { workExperience, workHero } from "@/lib/data/work/work";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "Explore Miko Aro’s work experience—journeying through frontend development, building seamless web experiences, and solving real-world challenges with modern technologies.",
+  alternates: { canonical: "/work" }
+};
+
+export default function WorkPage() {
   return (
     <>
-      <Hero {...workMainHeroProps} />
+      <Hero {...workHero} headingLevel="h1" priority />
       <section className="container px-4 py-12 lg:py-20">
-        <WorkTimeline workTimelineItems={workTimelineItems} />
+        <WorkTimeline items={workExperience} />
       </section>
     </>
   );
 }
-
-export default WorkPage;

@@ -1,60 +1,74 @@
-import Footer from "@/components/footer/footer";
-import Header from "@/components/header/header";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 
-import "./assets/styles/globals.css";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { siteConfig } from "@/lib/site";
+
+import "./globals.css";
 
 const poppins = Poppins({
   variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   subsets: ["latin"]
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    template: "Miko Aro | Frontend Web Developer | %s",
-    default: "Miko Aro | Frontend Web Developer"
+    template: `${siteConfig.title} | %s`,
+    default: siteConfig.title
   },
-  description:
-    "Miko Aro | Frontend Web Developer crafting dynamic, user-friendly, and performance-optimized web experiences with modern technologies.",
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Miko Aro | Frontend Web Developer",
-    description:
-      "Miko Aro | Frontend Web Developer crafting dynamic, user-friendly, and performance-optimized web experiences with modern technologies.",
-    url: "https://miko-aro.com",
-    siteName: "Miko Aro",
-    images: [
-      {
-        url: "https://miko-aro.com/assets/images/og-image.png",
-        width: 1200,
-        height: 628
-      }
-    ],
-    locale: "en_US",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "/",
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 628 }],
+    locale: siteConfig.locale,
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage]
   }
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0a09" }
+  ]
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} antialiased`}>
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
+      <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
+        >
+          Skip to content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <SiteHeader />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>

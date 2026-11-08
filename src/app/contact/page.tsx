@@ -1,16 +1,14 @@
-import { Construction } from "lucide-react";
+import type { Metadata } from "next";
 
-function ContactPage() {
-  return (
-    <section>
-      <div className="container px-4 py-12 lg:py-20 flex flex-col justify-center items-center gap-12">
-        <Construction size={128} />
-        <h1 className="text-2xl lg:text-4xl font-extrabold ml-4">
-          UNDER CONSTRUCTION
-        </h1>
-      </div>
-    </section>
-  );
+import { UnderConstruction } from "@/components/sections/under-construction";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Miko Aro—whether for collaborations, inquiries, or sharing ideas. Let's connect and create something amazing together.",
+  alternates: { canonical: "/contact" }
+};
+
+export default function ContactPage() {
+  return <UnderConstruction title="Contact" />;
 }
-
-export default ContactPage;

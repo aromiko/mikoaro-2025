@@ -1,16 +1,14 @@
-import { Construction } from "lucide-react";
+import type { Metadata } from "next";
 
-function AboutPage() {
-  return (
-    <section>
-      <div className="container px-4 py-12 lg:py-20 flex flex-col justify-center items-center gap-12">
-        <Construction size={128} />
-        <h1 className="text-2xl lg:text-4xl font-extrabold ml-4">
-          UNDER CONSTRUCTION
-        </h1>
-      </div>
-    </section>
-  );
+import { UnderConstruction } from "@/components/sections/under-construction";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Discover Miko Aro's journey beyond code—blending a passion for web development with cycling, photography, and creating meaningful digital experiences.",
+  alternates: { canonical: "/about" }
+};
+
+export default function AboutPage() {
+  return <UnderConstruction title="About" />;
 }
-
-export default AboutPage;
